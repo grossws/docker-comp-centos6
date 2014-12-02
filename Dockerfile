@@ -10,6 +10,8 @@ RUN gpg --keyserver pgp.mit.edu --recv-keys \
 	&& gpg --verify /tmp/gosu.asc /bin/gosu \
 	&& rm /tmp/gosu.asc
 
-RUN localedef -i ru_RU -f UTF-8 ru_RU.UTF-8 \
+RUN yum update -y \
+	&& yum install -y tar
+	&& localedef -i ru_RU -f UTF-8 ru_RU.UTF-8 \
 	&& localedef -i ru_RU -f CP1251 ru_RU.CP1251
 

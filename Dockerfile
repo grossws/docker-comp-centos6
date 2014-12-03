@@ -12,6 +12,9 @@ RUN gpg --keyserver pgp.mit.edu --recv-keys \
 
 RUN yum update -y \
 	&& yum install -y tar \
+	&& localedef -i en_US -f UTF-8 en_US.UTF-8 \
 	&& localedef -i ru_RU -f UTF-8 ru_RU.UTF-8 \
 	&& localedef -i ru_RU -f CP1251 ru_RU.CP1251
+
+ENV LANG en_US.UTF-8
 
